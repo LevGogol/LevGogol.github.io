@@ -1,4 +1,7 @@
 <html>
+<head>
+  <script src="mraid.js"></script>
+</head>
 <body>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0">
@@ -594,6 +597,13 @@
     }
 
     doReadyCheck();
+    mraid.addEventListener('audioVolumeChange', mraidHandleVolumeChange);	
+
+    function mraidHandleVolumeChange( volumePercentage ) {
+      volumePercentage = volumePercentage / 100;
+      audio.volume = Math.max(0, Math.min(1, volumePercentage));
+		}
+
   </script>
 </body>
 </html>
