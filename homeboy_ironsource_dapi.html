@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta
       name="viewport"
-      content="width=device-width,user-scalable=no,initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0"
+      content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1,minimal-ui=true"
     />
     <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -26,9 +26,6 @@
     <!--fix fireball/issues/3568 -->
     <!--<meta name="browsermode" content="application">-->
     <meta name="x5-page-mode" content="app" />
-  </head>
-
-  <body>
     <style>
       * {
         box-sizing: border-box;
@@ -91,7 +88,7 @@
         border: none;
         background: rgba(0, 0, 0, 0);
         color: rgba(0, 0, 0, 0);
-        cursor: pointer;
+        cursor: default;
       }
 
       #container {
@@ -147,6 +144,9 @@
         z-index: 101;
       }
     </style>
+  </head>
+
+  <body>
     <div id="container">
       <video autoplay muted playsinline id="loopVideo">
         <source src="" type="video/mp4" />
