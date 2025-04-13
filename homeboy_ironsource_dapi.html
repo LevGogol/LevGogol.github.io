@@ -539,24 +539,24 @@
 
       function openStoreUrl(url) {
         if (url) {
-          if (typeof dapi !== "undefined") {
-            dapi.open(url);
+          if (typeof mraid !== "undefined") {
+            mraid.open(url);
           } else {
             window.open(url);
           }
         }
       }
 
-      function dapiIsReady() {
-        if (dapi.isViewable()) {
-          dapi.removeEventListener("ready", dapiIsReady);
+      function mraidIsReady() {
+        if (mraid.isViewable()) {
+          mraid.removeEventListener("ready", mraidIsReady);
           showMyAd();
         } else {
-          dapi.addEventListener("viewableChange", dapiIsViewable);
+          mraid.addEventListener("viewableChange", mraidIsViewable);
         }
       }
 
-      function dapiIsViewable(isViewable) {
+      function mraidIsViewable(isViewable) {
         if (isViewable) {
           video.play();
           audio.play();
@@ -572,8 +572,8 @@
       }
 
       function doReadyCheck() {
-        if (typeof dapi !== "undefined" && dapi.getState() == "loading") {
-          dapi.addEventListener("ready", dapiIsReady);
+        if (typeof mraid !== "undefined" && mraid.getState() == "loading") {
+          mraid.addEventListener("ready", mraidIsReady);
         } else {
           showMyAd();
         }
@@ -583,9 +583,9 @@
         openStoreUrl(url);
       }
       doReadyCheck();
-      dapi.addEventListener("audioVolumeChange", dapiHandleVolumeChange);
+      mraid.addEventListener("audioVolumeChange", mraidHandleVolumeChange);
 
-      function dapiHandleVolumeChange(volumePercentage) {
+      function mraidHandleVolumeChange(volumePercentage) {
         volumePercentage = volumePercentage / 100;
         audio.volume = Math.max(0, Math.min(1, volumePercentage));
       }
