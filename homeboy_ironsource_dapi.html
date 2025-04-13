@@ -35,10 +35,33 @@
         overflow: hidden;
       }
 
+      html {
+        -ms-touch-action: none;
+      }
+      body,
+      canvas,
+      div {
+        display: block;
+        outline: 0;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -khtml-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      input::-webkit-inner-spin-button,
+      input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
       body {
         margin: 0;
         font-family: Arial;
         font-size: 17px;
+        cursor: default;
       }
 
       .content {
