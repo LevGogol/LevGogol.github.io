@@ -557,7 +557,6 @@
       function mraidIsReady() {
         if (mraid.isViewable()) {
           mraid.removeEventListener("ready", mraidIsReady);
-          mraid.addEventListener("audioVolumeChange", mraidHandleVolumeChange);
           showMyAd();
         } else {
           mraid.addEventListener("viewableChange", mraidIsViewable);
@@ -575,6 +574,29 @@
       }
 
       function showMyAd() {
+        if (typeof dapi !== "undefined") {
+          dapi.addEventListener("audioVolumeChange", audioVolumeChangeCallback);
+        } else if (typeof mraid !== "undefined") {
+          mraid.addEventListener(
+            "audioVolumeChange",
+            audioVolumeChangeCallback
+          );
+        }
+
+        if ("mute" in window) {
+          audioVolumeChangeCallback(window.mute);
+        }
+
+        function audioVolumeChangeCallback(volume) {
+          const isAudioEnabled = !!volume;
+          if (isAudioEnabled) {
+            audio.volume = 0;
+          } else {
+            audio.volume = 1;
+          }
+          console.log(audio.volume);
+        }
+
         video.play();
         audio.play();
       }
@@ -590,13 +612,18 @@
       function AdRedirectProcessing(url) {
         openStoreUrl(url);
       }
-      doReadyCheck();
 
-      function mraidHandleVolumeChange(volumePercentage) {
-        volumePercentage = volumePercentage / 100;
-        audio.volume = Math.max(0, Math.min(1, volumePercentage));
-        console.log("Volume changed to: " + volumePercentage);
+      window.mute = true;
+
+      function volumeChange(e) {
+        window.mute = !!e;
       }
+      "undefined" != typeof dapi &&
+        dapi.addEventListener("audioVolumeChange", volumeChange),
+        "undefined" != typeof mraid &&
+          mraid.addEventListener("audioVolumeChange", volumeChange);
+
+      doReadyCheck();
     </script>
   </body>
 </html>
