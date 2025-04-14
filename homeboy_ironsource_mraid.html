@@ -574,6 +574,7 @@
       }
 
       function showMyAd() {
+        mraid.addEventListener("audioVolumeChange", mraidHandleVolumeChange);
         video.play();
         audio.play();
       }
@@ -590,7 +591,6 @@
         openStoreUrl(url);
       }
       doReadyCheck();
-      mraid.addEventListener("audioVolumeChange", mraidHandleVolumeChange);
 
       function mraidHandleVolumeChange(volumePercentage) {
         volumePercentage = volumePercentage / 100;
