@@ -557,6 +557,7 @@
       function mraidIsReady() {
         if (mraid.isViewable()) {
           mraid.removeEventListener("ready", mraidIsReady);
+          mraid.addEventListener("audioVolumeChange", mraidHandleVolumeChange);
           showMyAd();
         } else {
           mraid.addEventListener("viewableChange", mraidIsViewable);
@@ -574,7 +575,6 @@
       }
 
       function showMyAd() {
-        mraid.addEventListener("audioVolumeChange", mraidHandleVolumeChange);
         video.play();
         audio.play();
       }
@@ -595,6 +595,7 @@
       function mraidHandleVolumeChange(volumePercentage) {
         volumePercentage = volumePercentage / 100;
         audio.volume = Math.max(0, Math.min(1, volumePercentage));
+        console.log("Volume changed to: " + volumePercentage);
       }
     </script>
   </body>
