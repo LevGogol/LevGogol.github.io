@@ -162,7 +162,7 @@
     <div class="allscreen">
       <button
         id="allscreenBtn"
-        onclick="{tryToUnmute();if(isClickCount){tryToRedirect();}}"
+        onclick="{window.muteUntilFirstClick=false;tryToUnmute();if(isClickCount){tryToRedirect();}}"
       ></button>
     </div>
     <script>
@@ -518,11 +518,9 @@
       let clickCount = 0;
 
       function tryToUnmute() {
-        if (audio.muted) {
-          // audio.muted = false;
-          audio.play();
-          audio.currentTime = video.currentTime;
-        }
+        audio.muted = window.muteByMraid && window.muteUntilFirstClick;
+        audio.play();
+        audio.currentTime = video.currentTime;
       }
 
       function tryToRedirect() {
@@ -576,10 +574,13 @@
       function showMyAd() {
         video.play();
         audio.play();
-        audio.muted = true;
       }
 
       function doReadyCheck() {
+        if (mraid !== "undefined") {
+          mraid.addEventListener("audioVolumeChange", volumeChange);
+        }
+
         if (typeof mraid !== "undefined" && mraid.getState() == "loading") {
           mraid.addEventListener("ready", mraidIsReady);
         } else {
@@ -590,6 +591,14 @@
       function AdRedirectProcessing(url) {
         openStoreUrl(url);
       }
+
+      function volumeChange(e) {
+        window.muteByMraid = !!e;
+        audio.muted = window.muteByMraid && window.muteUntilFirstClick;
+      }
+
+      window.muteByMraid = false;
+      window.muteUntilFirstClick = true;
       doReadyCheck();
     </script>
   </body>
