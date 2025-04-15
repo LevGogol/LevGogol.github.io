@@ -518,9 +518,11 @@
       let clickCount = 0;
 
       function tryToUnmute() {
-        audio.muted = window.muteByMraid && window.muteUntilFirstClick;
-        audio.play();
-        audio.currentTime = video.currentTime;
+        audio.muted = window.muteByMraid || window.muteUntilFirstClick;
+        if (audio.muted === false) {
+          audio.play();
+          audio.currentTime = video.currentTime;
+        }
       }
 
       function tryToRedirect() {
@@ -594,10 +596,10 @@
 
       function volumeChange(e) {
         window.muteByMraid = !!e;
-        audio.muted = window.muteByMraid && window.muteUntilFirstClick;
+        audio.muted = window.muteByMraid || window.muteUntilFirstClick;
       }
 
-      window.muteByMraid = true;
+      window.muteByMraid = false;
       window.muteUntilFirstClick = true;
       doReadyCheck();
     </script>
