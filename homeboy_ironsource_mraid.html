@@ -595,7 +595,7 @@
       }
 
       function volumeChange(e) {
-        window.muteByMraid = !!e;
+        window.muteByMraid = !e;
         audio.muted = window.muteByMraid || window.muteUntilFirstClick;
       }
 
