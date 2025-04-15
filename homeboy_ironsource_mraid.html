@@ -519,7 +519,7 @@
 
       function tryToUnmute() {
         if (audio.muted) {
-          audio.muted = false;
+          // audio.muted = false;
           audio.play();
           audio.currentTime = video.currentTime;
         }
@@ -576,7 +576,7 @@
       function showMyAd() {
         video.play();
         audio.play();
-        audio.volume = 0;
+        audio.muted = true;
       }
 
       function doReadyCheck() {
