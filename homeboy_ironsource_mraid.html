@@ -162,7 +162,7 @@
     <div class="allscreen">
       <button
         id="allscreenBtn"
-        onclick="{tryToUnmute();if(isClickCount){tryToRedirect();}}"
+        onclick="{muteUntilFirstClick=false;tryToUnmute();if(isClickCount){tryToRedirect();}}"
       ></button>
     </div>
     <script>
