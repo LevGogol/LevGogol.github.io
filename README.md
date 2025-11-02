@@ -9,7 +9,7 @@ This template should help get you started developing with Vue 3 in Vite.
 ## Recommended Browser Setup
 
 - Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
+  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
   - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
 - Firefox:
   - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
@@ -67,6 +67,7 @@ npm run deploy
 ```
 
 This script will:
+
 - Build the project
 - Push the contents of `dist` as a subtree to the `gh-pages` branch
 
@@ -98,4 +99,3 @@ Keep Node at version specified in `engines`. For CI we use Node 20. To update de
 npm outdated
 npm update
 ```
-
