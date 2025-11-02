@@ -1,98 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="">
   <head>
     <meta charset="UTF-8" />
-    <title>Playable Ads</title>
-    <style>
-      :root {
-        color-scheme: light dark;
-      }
-
-      body {
-        font-family: system-ui, sans-serif;
-        max-width: 600px;
-        margin: 3rem auto;
-        padding: 2rem;
-        background: #f9f9f9;
-        color: #333;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-        border-radius: 12px;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        body {
-          background: #121212;
-          color: #eee;
-        }
-      }
-
-      h1 {
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
-        text-align: center;
-      }
-
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      li {
-        margin: 0.75rem 0;
-      }
-
-      a {
-        text-decoration: none;
-        color: #0066cc;
-        font-weight: 500;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        transition: color 0.2s ease;
-      }
-
-      a:hover {
-        color: #003f91;
-      }
-
-      a::before {
-        content: "🎮";
-        font-size: 1.1rem;
-      }
-    </style>
+    <link rel="icon" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lev Gogol</title>
   </head>
   <body>
-    <h1>Playable Ads</h1>
-    <ul id="list"></ul>
-
-    <script>
-      fetch("playables/").then(async (res) => {
-        const text = await res.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(text, "text/html");
-
-        const links = Array.from(doc.querySelectorAll("a"))
-          .map((a) => a.getAttribute("href"))
-          .filter((href) => href.endsWith(".html"));
-
-        const ul = document.getElementById("list");
-        links.forEach((link) => {
-          const li = document.createElement("li");
-          const a = document.createElement("a");
-
-          const filename = link.replace(".html", "");
-          const label = filename
-            .replace(/[-_]/g, " ")
-            .replace(/\b\w/g, (c) => c.toUpperCase());
-
-          a.href = `${link}`;
-          a.textContent = label;
-
-          li.appendChild(a);
-          ul.appendChild(li);
-        });
-      });
-    </script>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

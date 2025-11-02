@@ -1,0 +1,16 @@
+[
+  {
+    "id": "tank-playable",
+    "title": "World of Artillery",
+    "description": "Модификация танка",
+    "url": "/playables/world-of-artillery-02/",
+    "tech": ["Cocos Creator", "3D"]
+  },
+  {
+    "id": "bottle-playable",
+    "title": "Bottle",
+    "description": "Бутылки с красивыми блестками",
+    "url": "/playables/BottleLongV4/",
+    "tech": ["Cocos Creator", "2D"]
+  }
+]
