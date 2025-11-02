@@ -46,3 +46,56 @@ npm run build
 ```sh
 npm run lint
 ```
+
+## Deploy to GitHub Pages
+
+This project is configured to deploy automatically to **GitHub Pages** using a GitHub Actions workflow located at `.github/workflows/deploy.yml`.
+
+### Automatic deployment (recommended)
+
+1. Ensure the repo name matches the pattern `<username>.github.io` for a user site. (Already satisfied here.)
+2. Push changes to the `master` branch.
+3. The workflow will build the site with `vite` and publish the contents of `dist` to GitHub Pages.
+4. After the first run: In the repository settings under Pages, confirm the build succeeded. The site will be available at: `https://levgogol.github.io/`.
+
+### Manual deployment (alternative)
+
+You can also deploy manually using a git subtree to a `gh-pages` branch:
+
+```sh
+npm run deploy
+```
+
+This script will:
+- Build the project
+- Push the contents of `dist` as a subtree to the `gh-pages` branch
+
+### Base path
+
+`vite.config.ts` sets `base: '/'` because this is a user site served from the root domain. If you convert this to a project (e.g. `https://username.github.io/project`), change base to `/project/`.
+
+### Custom domain (optional)
+
+1. Add a `CNAME` file to `public/` with your domain name (e.g. `example.com`).
+2. Set the same custom domain in the repository Settings -> Pages.
+3. Commit and push. The file will be included in the build output.
+
+### Cache / build troubleshooting
+
+If a deploy looks stale:
+
+```sh
+rm -rf node_modules
+npm ci
+npm run build
+```
+
+### Updating dependencies
+
+Keep Node at version specified in `engines`. For CI we use Node 20. To update deps:
+
+```sh
+npm outdated
+npm update
+```
+

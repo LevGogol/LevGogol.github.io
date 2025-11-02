@@ -10,6 +10,8 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
+  // For GitHub Pages user site (username.github.io) deploy at root. If deploying as a project page use '/REPO_NAME/'.
+  base: '/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
