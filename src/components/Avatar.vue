@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// Component: SiteAvatar (multi-word per Vue style guide)
 interface Props {
   src: string
   alt?: string
