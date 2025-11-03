@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import PlayableAdsList from './components/PlayableAdsList.vue'
+import TabsContainer from './components/TabsContainer.vue'
 import SiteAvatar from './components/Avatar.vue'
 import SocialLinks from './components/SocialLinks.vue'
 </script>
@@ -10,8 +10,13 @@ import SocialLinks from './components/SocialLinks.vue'
     <SocialLinks class="social" />
 
     <h1>Привет, я Лев Гоголь</h1>
-    <p class="lead">Съел собаку на создании интерактивной рекламы.</p>
-    <PlayableAdsList heading="Playable Ads" />
+    <p class="lead">
+      Разрабатываю инструменты и фреймворки для Playable Ads. Фокусируюсь на стабильности,
+      автоматизации и чистоте решений. Люблю, когда система прозрачна, а инструменты действительно
+      упрощают жизнь команде.
+    </p>
+    <p>Ниже представлены мои самые интересные проекты</p>
+    <TabsContainer />
   </main>
 </template>
 
@@ -38,14 +43,16 @@ import SocialLinks from './components/SocialLinks.vue'
 }
 h1 {
   font-size: 2.4rem;
-  margin: 1rem 0 1rem;
+  margin: 1rem 0 0;
   letter-spacing: 0.5px;
 }
 .lead {
   font-size: 1.05rem;
   color: #444;
+  margin-top: 0;
   margin-bottom: 2rem;
 }
+
 .social {
   justify-content: center;
   margin-top: 1rem;
