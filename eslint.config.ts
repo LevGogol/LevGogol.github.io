@@ -175,5 +175,20 @@ export default defineConfigWithVueTs(
     },
   },
 
+  // Test files configuration
+  {
+    name: 'app/test-files',
+    files: ['**/*.test.{ts,js}', '**/__tests__/**/*.{ts,js}'],
+    rules: {
+      '@typescript-eslint/naming-convention': [
+        'error',
+        {
+          selector: 'property',
+          format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
+        },
+      ],
+    },
+  },
+
   skipFormatting
 );
