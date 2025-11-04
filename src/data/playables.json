@@ -1,13 +1,13 @@
 [
   {
     "title": "World of Artillery",
-    "description": "Интригующая кастомизация машины для артиллерийских боёв",
+    "description": "Intriguing vehicle customization for artillery battles",
     "link": "/playables/world-of-artillery-02.html",
     "tech": ["Cocos Creator", "3D"]
   },
   {
-    "title": "Bottle",
-    "description": "Увлекательный логический пазл с красивым блестящим шейдером",
+    "title": "Get Color",
+    "description": "Engaging logic puzzle with beautiful shimmering shader",
     "link": "/playables/BottleLongV4.html",
     "tech": ["Cocos Creator", "2D"]
   }

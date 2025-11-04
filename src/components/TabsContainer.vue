@@ -6,7 +6,7 @@ import ToolsList from './ToolsList.vue'
 const activeTab = ref('tools')
 
 const tabs = [
-  { id: 'tools', label: 'Инструменты' },
+  { id: 'tools', label: 'Tools' },
   { id: 'playables', label: 'Playable Ads' },
 ]
 

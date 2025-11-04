@@ -1,23 +1,23 @@
 [
   {
     "title": "Get Playable",
-    "description": "Расширение для браузера с <a href=\"https://github.com/LevGogol/get_playable\" target=\"_blank\" rel=\"noopener\">открытым исходным кодом</a>. Позволяет получать ссылки на полноэкранные playable ads из SensorTower и AppMagic.",
+    "description": "An <a href=\"https://github.com/LevGogol/get_playable\" target=\"_blank\" rel=\"noopener\">open-source</a> browser extension. Allows you to get links to full-screen playable ads from SensorTower and AppMagic.",
     "technologies": ["javascript", "chrome extension"],
     "link": "https://chromewebstore.google.com/detail/get-playable/ihcleanhlnbbgodmgjcjoklpeckmhaop"
   },
   {
     "title": "Video to Playable",
-    "description": "Конвертирует видео в playable ads. С ним создание playable занимает всего несколько минут. <a href=\"https://appmagic.rocks/api/v2/dmint/proxy/mraid-proxy.dmint.dev/4/41/419/4192/4192c/4192c3/4192c3c1-e01d-4d03-b78e-5c9c408de974/index.html\" target=\"_blank\" rel=\"noopener\">Пример</a>.",
+    "description": "Converts videos to playable ads. Creating a playable takes just a few minutes with it. <a href=\"https://appmagic.rocks/api/v2/dmint/proxy/mraid-proxy.dmint.dev/4/41/419/4192/4192c/4192c3/4192c3c1-e01d-4d03-b78e-5c9c408de974/index.html\" target=\"_blank\" rel=\"noopener\">Example</a>.",
     "technologies": ["TypeScript", "Vue.js", "Node.js", "FFmpeg", "Vite"]
   },
   {
     "title": "Asset Optimizer",
-    "description": "Использует оптимальные алгоритмы сжатия для изображений, моделей и аудио в Cocos Creator. Ограничение в 5 МБ на размер проекта больше не проблема!",
+    "description": "Uses optimal compression algorithms for images, models, and audio in Cocos Creator. The 5 MB project size limit is no longer a problem!",
     "technologies": ["TypeScript", "Cocos Creator", "Node.js"]
   },
   {
     "title": "Template",
-    "description": "Фреймворк для разработки playable ads, ускоряющий работу и помогающий поддерживать единый стиль проекта в соответствии с лучшими практиками.",
+    "description": "A framework for developing playable ads that accelerates work and helps maintain a consistent project style following best practices.",
     "technologies": ["Unity", "Cocos Creator"]
   }
 ]
