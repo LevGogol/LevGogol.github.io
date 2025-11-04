@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import ItemCard from './ItemCard.vue'
-import toolsData from '../data/tools.json'
+import ItemCard from './ItemCard.vue';
+import toolsData from '../data/tools.json';
 
-interface Tool {
-  title: string
-  description: string
-  link?: string
-  technologies?: string[]
+interface ITool {
+  title: string;
+  description: string;
+  link?: string;
+  technologies?: string[];
 }
 
-const tools: Tool[] = toolsData
+const tools: ITool[] = toolsData;
 </script>
 
 <template>

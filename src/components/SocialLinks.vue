@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
-const size = 32
+import { Icon } from '@iconify/vue';
+const size = 32;
 const links = [
   {
     href: 'https://github.com/LevGogol',
@@ -18,11 +18,11 @@ const links = [
     href: 'mailto:levgogol@gmail.com',
     icon: 'mdi:email',
   },
-]
+];
 </script>
 
 <template>
-  <nav class="social" aria-label="Социальные ссылки">
+  <nav class="social">
     <a v-for="l in links" :key="l.href" :href="l.href" target="_blank" class="social-btn">
       <Icon :icon="l.icon" :width="size" />
     </a>

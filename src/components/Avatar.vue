@@ -1,36 +1,36 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-interface Props {
-  src: string
+interface IProps {
+  src: string;
 }
 
-const { src } = defineProps<Props>()
-const dimension = 160
-const rotationTime = 600
+const { src } = defineProps<IProps>();
+const dimension = 160;
+const rotationTime = 600;
 
-const isSpinning = ref(false)
-const isHovered = ref(false)
+const isSpinning = ref(false);
+const isHovered = ref(false);
 
-const handleClick = () => {
+const handleClick = (): void => {
   if (isSpinning.value) {
-    return
+    return;
   }
-  isSpinning.value = true
+  isSpinning.value = true;
   setTimeout(() => {
-    isSpinning.value = false
-  }, rotationTime)
-}
+    isSpinning.value = false;
+  }, rotationTime);
+};
 
-const handleMouseEnter = () => {
-  isHovered.value = true
-}
+const handleMouseEnter = (): void => {
+  isHovered.value = true;
+};
 
-const handleMouseLeave = () => {
-  isHovered.value = false
-}
+const handleMouseLeave = (): void => {
+  isHovered.value = false;
+};
 
-defineOptions({ name: 'SiteAvatar' })
+defineOptions({ name: 'SiteAvatar' });
 </script>
 
 <template>

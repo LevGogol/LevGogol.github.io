@@ -1,13 +1,13 @@
 <script setup lang="ts">
-interface Props {
-  title: string
-  description: string
-  link?: string
-  tags?: string[]
-  linkText?: string // Опциональный текст для ссылки
+interface IProps {
+  title: string;
+  description: string;
+  link?: string;
+  tags?: string[];
+  linkText?: string; // Опциональный текст для ссылки
 }
 
-defineProps<Props>()
+defineProps<IProps>();
 </script>
 
 <template>

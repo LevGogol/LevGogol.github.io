@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import playables from '../data/playables.json'
-import ItemCard from './ItemCard.vue'
+import playables from '../data/playables.json';
+import ItemCard from './ItemCard.vue';
 </script>
 
 <template>

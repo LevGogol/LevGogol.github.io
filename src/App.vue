@@ -2,7 +2,7 @@
 import TabsContainer from './components/TabsContainer.vue'
 import SiteAvatar from './components/Avatar.vue'
 import SocialLinks from './components/SocialLinks.vue'
-import Greeting from './components/Greeting.vue'
+import Greeting from './components/GreetingSection.vue'
 </script>
 
 <template>

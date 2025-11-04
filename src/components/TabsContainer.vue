@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import PlayableAdsList from './PlayableAdsList.vue'
-import ToolsList from './ToolsList.vue'
+import { ref } from 'vue';
+import PlayableAdsList from './PlayableAdsList.vue';
+import ToolsList from './ToolsList.vue';
 
-const activeTab = ref('tools')
+const activeTab = ref('tools');
 
 const tabs = [
   { id: 'tools', label: 'Tools' },
   { id: 'playables', label: 'Playable Ads' },
-]
+];
 
-function setActiveTab(tabId: string) {
-  activeTab.value = tabId
+function setActiveTab(tabId: string): void {
+  activeTab.value = tabId;
 }
 </script>
 
