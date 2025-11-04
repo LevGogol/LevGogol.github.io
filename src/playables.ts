@@ -2,7 +2,7 @@ export interface PlayableMeta {
   id: string // folder name under /public/playables
   title: string // display name
   description: string // short line about the mechanic / goal
-  url: string // resolved public URL
+  link: string // resolved public URL
   tech?: string[] // optional stack tags
 }
 
@@ -15,7 +15,7 @@ function isPlayableMeta(obj: unknown): obj is PlayableMeta {
     typeof r.id === 'string' &&
     typeof r.title === 'string' &&
     typeof r.description === 'string' &&
-    typeof r.url === 'string'
+    typeof r.link === 'string'
   )
 }
 

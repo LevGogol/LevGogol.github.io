@@ -11,7 +11,7 @@ import ItemCard from './ItemCard.vue'
         :key="p.id"
         :title="p.title"
         :description="p.description"
-        :link="p.url"
+        :link="p.link"
         :tags="p.tech"
       />
     </ul>

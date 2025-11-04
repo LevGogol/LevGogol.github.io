@@ -6,7 +6,7 @@ import SocialLinks from './components/SocialLinks.vue'
 
 <template>
   <main class="container">
-    <SiteAvatar src="/levgogol.webp" alt="Lev Gogol фото" lazy />
+    <SiteAvatar src="/levgogol.webp" />
     <SocialLinks class="social" />
 
     <h1>Привет, я Лев Гоголь</h1>
