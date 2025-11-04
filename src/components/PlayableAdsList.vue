@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PLAYABLES } from '../playables'
+import playables from '../data/playables.json'
 import ItemCard from './ItemCard.vue'
 </script>
 
@@ -7,12 +7,12 @@ import ItemCard from './ItemCard.vue'
   <section class="playables" aria-labelledby="playables-heading">
     <ul class="playables-list">
       <ItemCard
-        v-for="p in PLAYABLES"
-        :key="p.id"
-        :title="p.title"
-        :description="p.description"
-        :link="p.link"
-        :tags="p.tech"
+        v-for="(playable, index) in playables"
+        :key="index"
+        :title="playable.title"
+        :description="playable.description"
+        :link="playable.link"
+        :tags="playable.tech"
       />
     </ul>
   </section>

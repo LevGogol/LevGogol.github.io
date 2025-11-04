@@ -16,8 +16,8 @@ const tools: Tool[] = toolsData
   <section class="tools" aria-labelledby="tools-heading">
     <ul class="tools-list">
       <ItemCard
-        v-for="tool in tools"
-        :key="tool.title"
+        v-for="(tool, index) in tools"
+        :key="index"
         :title="tool.title"
         :description="tool.description"
         :link="tool.link"
