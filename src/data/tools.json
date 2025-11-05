@@ -8,7 +8,7 @@
   {
     "title": "Video to Playable",
     "description": "Converts videos to playable ads. Creating a playable takes just a few minutes with it. <a href=\"https://appmagic.rocks/api/v2/dmint/proxy/mraid-proxy.dmint.dev/4/41/419/4192/4192c/4192c3/4192c3c1-e01d-4d03-b78e-5c9c408de974/index.html\" target=\"_blank\" rel=\"noopener\">Example</a>.",
-    "technologies": ["TypeScript", "Vue.js", "Node.js", "FFmpeg", "Vite"]
+    "technologies": ["TypeScript", "Vue.js", "Node.js", "Vite"]
   },
   {
     "title": "Asset Optimizer",
@@ -19,5 +19,10 @@
     "title": "Template",
     "description": "A framework for developing playable ads that accelerates work and helps maintain a consistent project style following best practices.",
     "technologies": ["Unity", "Cocos Creator"]
+  },
+  {
+    "title": "html-to-gif",
+    "description": "Tool for converting HTML playable (interactive) creatives into optimized GIF animations for AppLovin",
+    "technologies": ["electron", "Vue.js", "Vite"]
   }
 ]
