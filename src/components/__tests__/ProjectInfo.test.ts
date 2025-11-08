@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import TabsContainer from '../TabsContainer.vue';
+import TabsContainer from '../Projects/ProjectInfo.vue';
 
 describe('TabsContainer', () => {
   it('renders tab navigation', () => {

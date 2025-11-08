@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import TabsContainer from './components/TabsContainer.vue'
-import SiteAvatar from './components/Avatar.vue'
-import SocialLinks from './components/SocialLinks.vue'
-import Greeting from './components/GreetingSection.vue'
+import ProjectInfo from './components/Projects/ProjectInfo.vue';
+import SiteAvatar from './components/Avatar.vue';
+import SocialLinks from './components/SocialLinks.vue';
+import GreetingSection from './components/GreetingSection.vue';
 </script>
 
 <template>
   <main class="container">
     <SiteAvatar src="/levgogol.webp" />
     <SocialLinks class="social" />
-    <Greeting />
-    <TabsContainer />
+    <GreetingSection />
+    <ProjectInfo />
   </main>
 </template>
 

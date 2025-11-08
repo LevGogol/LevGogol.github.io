@@ -4,7 +4,7 @@ interface IProps {
   description: string;
   link?: string;
   tags?: string[];
-  linkText?: string; // Опциональный текст для ссылки
+  image?: string;
 }
 
 defineProps<IProps>();
@@ -19,6 +19,9 @@ defineProps<IProps>();
       :rel="link ? 'noopener' : undefined"
       :class="link ? 'card-link' : 'card-content'"
     >
+      <div v-if="image" class="item-image">
+        <img :src="image" :alt="title" />
+      </div>
       <div class="item-content">
         <span :class="['item-title', { clickable: !!link }]">{{ title }}</span>
         <span class="desc" v-html="description"></span>
@@ -42,7 +45,7 @@ defineProps<IProps>();
 .card-link,
 .card-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 1rem;
   padding: 0.9rem 1rem 0.75rem;
   text-decoration: none;
@@ -110,10 +113,37 @@ defineProps<IProps>();
   font-weight: 600;
 }
 
+.item-image {
+  flex-shrink: 0;
+  width: 120px;
+  height: 100px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 @media (max-width: 600px) {
   .card-link,
   .card-content {
+    flex-direction: column;
     gap: 0.8rem;
+  }
+
+  .item-image {
+    width: 100%;
+    height: 120px;
+    order: -1;
   }
 }
 </style>

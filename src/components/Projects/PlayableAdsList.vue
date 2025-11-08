@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import playables from '../data/playables.json';
+import playables from '@/data/playables.json';
 import ItemCard from './ItemCard.vue';
 </script>
 
@@ -13,6 +13,7 @@ import ItemCard from './ItemCard.vue';
         :description="playable.description"
         :link="playable.link"
         :tags="playable.tech"
+        :image="playable.image"
       />
     </ul>
   </section>

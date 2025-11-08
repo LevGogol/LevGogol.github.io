@@ -1,12 +1,34 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
-import ToolsList from '../ToolsList.vue';
+import ToolsList from '../Projects/ToolsList.vue';
 
-// Mock ItemCard component
 const mockItemCard = {
   template: '<li class="mock-item-card">{{ title }} - {{ description }}</li>',
-  props: ['title', 'description', 'link', 'tags'],
+  props: ['title', 'description', 'link', 'tags', 'image'],
 };
+
+// Mock the tools.json import
+vi.mock('@/data/tools.json', () => ({
+  default: [
+    {
+      title: 'Mock Tool 1',
+      description: 'This is a mock tool description',
+      link: 'https://example.com/tool1',
+      technologies: ['JavaScript', 'Vue.js'],
+    },
+    {
+      title: 'Mock Tool 2',
+      description: 'Another mock tool without link',
+      technologies: ['TypeScript', 'Node.js'],
+    },
+    {
+      title: 'Mock Tool 3',
+      description: 'Third mock tool',
+      link: 'https://example.com/tool3',
+      technologies: ['React', 'CSS'],
+    },
+  ],
+}));
 
 describe('ToolsList', () => {
   it('renders section with correct aria-labelledby', () => {
@@ -37,11 +59,15 @@ describe('ToolsList', () => {
   });
 
   it('renders ItemCard components', () => {
-    const wrapper = mount(ToolsList);
-
-    // Find ItemCard components directly instead of mocked ones
+    const wrapper = mount(ToolsList, {
+      global: {
+        components: {
+          ItemCard: mockItemCard,
+        },
+      },
+    });
     const items = wrapper.findAllComponents({ name: 'ItemCard' });
-    expect(items.length).toBeGreaterThan(0);
+    expect(items.length).toBe(3); // Based on our mock data
   });
 
   it('passes correct props to ItemCard components', () => {
@@ -55,16 +81,22 @@ describe('ToolsList', () => {
 
     const items = wrapper.findAllComponents(mockItemCard);
 
-    // Check first item (Get Playable)
-    expect(items[0]?.props().title).toBe('Get Playable');
-    expect(items[0]?.props().description).toContain('open-source');
-    expect(items[0]?.props().link).toContain('chromewebstore.google.com');
-    expect(items[0]?.props().tags).toEqual(['javascript', 'chrome extension']);
+    // Test first mock tool
+    expect(items[0]?.props().title).toBe('Mock Tool 1');
+    expect(items[0]?.props().description).toBe('This is a mock tool description');
+    expect(items[0]?.props().link).toBe('https://example.com/tool1');
+    expect(items[0]?.props().tags).toEqual(['JavaScript', 'Vue.js']);
 
-    // Check second item (Video to Playable - no link)
-    expect(items[1]?.props().title).toBe('Video to Playable');
+    // Test second mock tool (without link)
+    expect(items[1]?.props().title).toBe('Mock Tool 2');
+    expect(items[1]?.props().description).toBe('Another mock tool without link');
     expect(items[1]?.props().link).toBeUndefined();
-    expect(items[1]?.props().tags).toEqual(['TypeScript', 'Vue.js', 'Node.js', 'FFmpeg', 'Vite']);
+    expect(items[1]?.props().tags).toEqual(['TypeScript', 'Node.js']);
+
+    // Test third mock tool
+    expect(items[2]?.props().title).toBe('Mock Tool 3');
+    expect(items[2]?.props().link).toBe('https://example.com/tool3');
+    expect(items[2]?.props().tags).toEqual(['React', 'CSS']);
   });
 
   it('uses index as key for v-for', () => {
@@ -77,8 +109,7 @@ describe('ToolsList', () => {
     });
 
     const items = wrapper.findAllComponents(mockItemCard);
-    expect(items).toHaveLength(4);
-    // Keys are handled internally by Vue, we just ensure components render correctly
+    expect(items).toHaveLength(3); // Based on our mock data
   });
 
   it('imports and uses tools data', () => {
@@ -90,12 +121,10 @@ describe('ToolsList', () => {
       },
     });
 
-    // Check that the real data is being used
     const content = wrapper.text();
-    expect(content).toContain('Get Playable');
-    expect(content).toContain('Video to Playable');
-    expect(content).toContain('Asset Optimizer');
-    expect(content).toContain('Template');
+    expect(content).toContain('Mock Tool 1');
+    expect(content).toContain('Mock Tool 2');
+    expect(content).toContain('Mock Tool 3');
   });
 
   it('maps technologies to tags prop correctly', () => {
@@ -109,9 +138,9 @@ describe('ToolsList', () => {
 
     const items = wrapper.findAllComponents(mockItemCard);
 
-    // Check that technologies are passed as tags (using real data)
-    expect(items[0]?.props().tags).toEqual(['javascript', 'chrome extension']);
-    expect(items[1]?.props().tags).toEqual(['TypeScript', 'Vue.js', 'Node.js', 'FFmpeg', 'Vite']);
+    expect(items[0]?.props().tags).toEqual(['JavaScript', 'Vue.js']);
+    expect(items[1]?.props().tags).toEqual(['TypeScript', 'Node.js']);
+    expect(items[2]?.props().tags).toEqual(['React', 'CSS']);
   });
 
   it('handles tools without link property', () => {
@@ -125,10 +154,14 @@ describe('ToolsList', () => {
 
     const items = wrapper.findAllComponents(mockItemCard);
 
-    // Second item (Video to Playable) should have undefined link
+    // First tool has link
+    expect(items[0]?.props().link).toBe('https://example.com/tool1');
+
+    // Second tool doesn't have link
     expect(items[1]?.props().link).toBeUndefined();
-    // Third item (Asset Optimizer) should also have undefined link
-    expect(items[2]?.props().link).toBeUndefined();
+
+    // Third tool has link
+    expect(items[2]?.props().link).toBe('https://example.com/tool3');
   });
 
   it('correctly types the tools data with ITool interface', () => {
@@ -140,8 +173,6 @@ describe('ToolsList', () => {
       },
     });
 
-    // This test verifies that the component compiles correctly with TypeScript
-    // and that the ITool interface is properly applied
     expect(wrapper.exists()).toBe(true);
   });
 });

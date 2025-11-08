@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ItemCard from './ItemCard.vue';
-import toolsData from '../data/tools.json';
+import toolsData from '@/data/tools.json';
 
 interface ITool {
   title: string;

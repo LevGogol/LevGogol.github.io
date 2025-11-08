@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import ItemCard from '../ItemCard.vue';
+import ItemCard from '../Projects/ItemCard.vue';
 
 describe('ItemCard', () => {
   const mockProps = {
@@ -121,19 +121,6 @@ describe('ItemCard', () => {
 
     expect(wrapper.find('.item-card').exists()).toBe(true);
     expect(wrapper.find('.item-content').exists()).toBe(true);
-  });
-
-  it('passes linkText prop (testing prop interface)', () => {
-    const wrapper = mount(ItemCard, {
-      props: {
-        ...mockProps,
-        linkText: 'Custom Link Text',
-      },
-    });
-
-    // linkText is defined in interface but not used in template
-    // This test ensures the prop is accepted without errors
-    expect(wrapper.exists()).toBe(true);
   });
 
   it('renders list item element', () => {
