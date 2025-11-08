@@ -10,5 +10,29 @@
     "description": "Engaging logic puzzle with beautiful shimmering shader",
     "link": "/playables/BottleLongV4.html",
     "tech": ["Cocos Creator", "2D"]
+  },
+  {
+    "title": "Hit Master",
+    "description": "Gameplay demo of a dynamic action game featuring realistic ragdoll physics",
+    "link": "https://assets.lunalabs.io/uploads/apps/build/6003321/30dd18bfb250c9892fccf1c0644a9efa/7b01a2bd2d283ddda748f84d008ef573.html",
+    "tech": ["three.js", "3D"]
+  },
+  {
+    "title": "Find Easy",
+    "description": "Gameplay demo of a vibrant and challenging hidden object game.",
+    "link": "https://appmagic.rocks/api/v2/dmint/proxy/mraid-proxy.dmint.dev/f/f8/f82/f82c/f82cd/f82cdf/f82cdf78-d7fb-44b9-a72b-7e176786a17c/index.html",
+    "tech": ["three.js", "2D"]
+  },
+  {
+    "title": "Mow My Lawn",
+    "description": "Gameplay demo of a mowing game where you clear overgrown yards and race against regrowing grass",
+    "link": "https://playground.lunalabs.io/preview/44287/60970/0dbcd9ef8a868d6e10f3885455bf69178017da7f0c16692ee62a3d51d2133627",
+    "tech": ["Unity", "Luna", "3D"]
+  },
+  {
+    "title": "Fire Hero 2D",
+    "description": "Gameplay demo of a minimalistic arcade scrolling shooter game",
+    "link": "https://playground.lunalabs.io/preview/162162/232616/0dbcd9ef8a868d6e10f3885455bf69178017da7f0c16692ee62a3d51d2133627",
+    "tech": ["Unity", "Luna", "2D"]
   }
 ]
