@@ -29,6 +29,14 @@ import ItemCard from './ItemCard.vue';
   gap: 1rem;
 }
 
+@media (min-width: 768px) and (orientation: landscape) {
+  .playables-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
 .playables-about {
   margin: 0 0 1.25rem;
   color: #555;

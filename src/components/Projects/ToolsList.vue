@@ -7,6 +7,7 @@ interface ITool {
   description: string;
   link?: string;
   technologies?: string[];
+  image?: string;
 }
 
 const tools: ITool[] = toolsData;
@@ -22,6 +23,7 @@ const tools: ITool[] = toolsData;
         :description="tool.description"
         :link="tool.link"
         :tags="tool.technologies"
+        :image="tool.image"
       />
     </ul>
   </section>
@@ -35,5 +37,13 @@ const tools: ITool[] = toolsData;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+@media (min-width: 768px) and (orientation: landscape) {
+  .tools-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
 }
 </style>

@@ -45,8 +45,8 @@ defineProps<IProps>();
 .card-link,
 .card-content {
   display: flex;
-  flex-direction: row;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.8rem;
   padding: 0.9rem 1rem 0.75rem;
   text-decoration: none;
   color: inherit;
@@ -115,15 +115,15 @@ defineProps<IProps>();
 
 .item-image {
   flex-shrink: 0;
-  width: 120px;
-  height: 100px;
+  width: 100%;
+  height: 120px;
+  order: -1;
   border-radius: 8px;
   overflow: hidden;
   background: #f0f0f0;
   display: flex;
   align-items: center;
   justify-content: center;
-  align-self: center;
 }
 
 .item-image img {
@@ -131,19 +131,5 @@ defineProps<IProps>();
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
-}
-
-@media (max-width: 600px) {
-  .card-link,
-  .card-content {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  .item-image {
-    width: 100%;
-    height: 120px;
-    order: -1;
-  }
 }
 </style>

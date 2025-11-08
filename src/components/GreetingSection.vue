@@ -5,7 +5,7 @@
       I develop tools and frameworks for Playable Ads. I focus on stability, automation, and clean
       solutions. I love when the system is transparent and tools truly simplify the team's life.
     </p>
-    <p>Below are my most interesting projects</p>
+    <p>Here are some of my most interesting projects:</p>
   </div>
 </template>
 
