@@ -113,6 +113,9 @@ defineOptions({ name: 'SiteAvatar' });
   cursor: pointer;
   position: relative;
   z-index: 1;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  -webkit-touch-callout: none;
 }
 
 .avatar.spinning {
