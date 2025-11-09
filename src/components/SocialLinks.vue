@@ -22,17 +22,33 @@ const links = [
 </script>
 
 <template>
-  <nav class="social">
-    <a v-for="l in links" :key="l.href" :href="l.href" target="_blank" class="social-btn">
-      <Icon :icon="l.icon" :width="size" />
-    </a>
-  </nav>
+  <div class="social-wrapper">
+    <h2 class="social-heading">Connect with Me</h2>
+    <nav class="social" aria-label="Social media links">
+      <a v-for="l in links" :key="l.href" :href="l.href" target="_blank" class="social-btn">
+        <Icon :icon="l.icon" :width="size" />
+      </a>
+    </nav>
+  </div>
 </template>
 
 <style scoped>
+.social-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center horizontally */
+  width: 100%;
+  margin-top: 1rem;
+}
+.social-heading {
+  font-size: 1.15rem;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 0 0;
+}
 .social {
   display: flex;
-  gap: 0.85rem;
+  gap: 0.5rem 1rem;
 }
 .social-btn {
   width: v-bind(size + 'px');

@@ -17,7 +17,7 @@ import GreetingSection from './components/GreetingSection.vue';
 <style scoped>
 .container {
   max-width: 760px;
-  margin: 4rem auto;
+  margin: 1rem auto;
   padding: 0 1.5rem;
   font-family:
     system-ui,
@@ -36,14 +36,9 @@ import GreetingSection from './components/GreetingSection.vue';
   line-height: 1.55;
 }
 
-.social {
-  justify-content: center;
-  margin-top: 1rem;
-}
-
 @media (max-width: 560px) {
   .container {
-    margin: 2.5rem auto;
+    margin: 1rem auto;
   }
 }
 </style>
